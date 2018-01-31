@@ -5,13 +5,15 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var book = require('./server-routes/user-reg');
 var app = express();
+const api = require('./server-routes/user-reg');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
-app.set('view engine', 'html');
+app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/register', express.static(path.join(__dirname, 'dist')));
+app.use('/api', api);
 
 
 // catch 404 and forward to error handler

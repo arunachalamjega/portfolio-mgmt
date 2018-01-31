@@ -9,7 +9,7 @@ export class Utility {
     public registerUser(model){
         const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         console.log("Output");
-        this.http.post('/user',model,{headers: headers}).subscribe();
+        this.http.post('/api/user',model,{headers: headers}).subscribe();
         
     }
 
