@@ -1,10 +1,10 @@
 {
-  "name": "angular-bootstrap-example",
+  "name": "portfolio-mgmt",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build && node ./scripts/server",
     "build": "ng build",
     "test": "echo \"Error: no test... minimal project\" && exit 1",
     "lint": "echo \"Error: no lint... minimal project\" && exit 1",
@@ -21,10 +21,14 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
     "ngx-bootstrap": "^1.8.1",
     "rxjs": "^5.4.2",
+    "serve-favicon": "^2.4.5",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

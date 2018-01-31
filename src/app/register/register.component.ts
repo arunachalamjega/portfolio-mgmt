@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Utility } from '../service/utility';
+import { HttpClient } from '@angular/common/http/src/client';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   usermodel = new User('','','Mr.','','','','','',0,'','','',false);
   submitted = false;
   surnames = ['Mr.','Mrs.'];
-  util = new Utility();
+  client : HttpClient;
+  util = new Utility(this.client);
  
   onSubmit() { 
     this.submitted = true; 
