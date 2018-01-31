@@ -1,0 +1,87 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h4>Register User</h4>
+        <form (ngSubmit)="onSubmit()"  #regForm="ngForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" required [(ngModel)]="usermodel.firstName" name="firstName" #firstName="ngModel">
+                <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                    firstName is required
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" required [(ngModel)]="usermodel.lastname" name="lastname" #lastname="ngModel">
+                    <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+                        Last Name is required
+                    </div>
+            </div>                            
+            <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required [(ngModel)]="usermodel.email" name="email" #email="ngModel">                    
+            </div>
+            <div class="form-group">
+                <label for="surName">SurName</label>
+                <select class="form-control" id="surName" required [(ngModel)]="usermodel.surName" name="surName" #surName="ngModel">
+                    <option *ngFor="let surname of surnames" [value]="surname">{{surname}}</option>
+                </select>
+                <div [hidden]="surName.valid || surName.pristine" class="alert alert-danger">
+                    surName is required
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="addressline1">Address Line 1</label>
+                    <input type="text" class="form-control" id="addressline1" required [(ngModel)]="usermodel.addressline1" name="addressline1" #addressline1="ngModel">
+                    <div [hidden]="addressline1.valid || addressline1.pristine" class="alert alert-danger">
+                            addressline1 is required
+            </div>
+            </div>            
+            <div class="form-group">
+                    <label for="addressline2">Address Line 2</label>
+                    <input type="text" class="form-control" id="addressline2"  [(ngModel)]="usermodel.addressline2" name="addressline2" #addressline2="ngModel">
+            </div>
+            <div class="form-group">
+                    <label for="addressline3">Address Line 3</label>
+                    <input type="text" class="form-control" id="addressline3"  [(ngModel)]="usermodel.addressline3" name="addressline3" #addressline3="ngModel">                                    
+            </div>
+            <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" required [(ngModel)]="usermodel.city" name="city" #city="ngModel">
+                    <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                            city is required
+            </div>
+            </div>
+            <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" id="state" required [(ngModel)]="usermodel.state" name="state" #state="ngModel">
+                    <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
+                            state is required
+            </div>
+            </div>
+            <div class="form-group">
+                    <label for="pincode">Pin code</label>
+                    <input type="text" class="form-control" id="pincode" required [(ngModel)]="usermodel.pincode" name="pincode" #pincode="ngModel">
+                    <div [hidden]="pincode.valid || pincode.pristine" class="alert alert-danger">
+                            pincode is required
+            </div>
+            </div>
+            <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" required [(ngModel)]="usermodel.country" name="country" #country="ngModel">
+                    <div [hidden]="country.valid || country.pristine" class="alert alert-danger">
+                            country is required
+            </div>
+            </div>
+            <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" required [(ngModel)]="usermodel.phone" name="phone" #phone="ngModel">
+                    <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                            phone is required
+            </div>
+            </div>    
+            <div class="form-group">
+            <button type="submit"  class="btn btn-success" [disabled]="!regForm.form.valid">Create</button>
+            <button type="reset"  class="btn btn-failure" (click)="onReset()">cancel</button>
+        </div>
+        </form>
+    </div>
