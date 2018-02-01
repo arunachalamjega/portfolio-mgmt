@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
-import { Utility } from '../service/utility';
-import { HttpClient } from '@angular/common/http/src/client';
+import {ConfigService} from '../http-service/http-service'
 
 @Component({
   selector: 'app-register',
   templateUrl: './register-component.html',
-  styleUrls: ['./register-form.component.css']
+  styleUrls: ['./register-form.component.css'],
+  providers: [ConfigService]
 })
 export class RegisterComponent implements OnInit {
 
@@ -16,8 +16,9 @@ export class RegisterComponent implements OnInit {
   usermodel = new User('','','Mr.','','','','','',0,'','','',false);
   submitted = false;
   surnames = ['Mr.','Mrs.'];
-  client : HttpClient;
-  util = new Utility(this.client);
+  
+  
+
  
   onSubmit() { 
     this.submitted = true; 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
     this.usermodel = new User('','','Mr.','','','','','',0,'','','',false);
     
   }
-  constructor() {    
+  constructor(private cs :ConfigService ) {    
   }
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   saveUser(){    
     console.log(this.usermodel);
-    this.util.registerUser(this.usermodel);
+    this.cs.register(this.usermodel);
   }
 
 }

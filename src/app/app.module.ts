@@ -6,6 +6,8 @@ import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import {ConfigService} from './http-service/http-service';
 
 const appRoutes: Routes = [
   {
@@ -16,7 +18,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent, RegisterComponent, LoginComponent],
   imports: [BrowserModule, AppBoostrapModule,  FormsModule,HttpClientModule,RouterModule.forRoot(
     appRoutes,
     { enableTracing: true } // <-- debugging purposes only

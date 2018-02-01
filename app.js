@@ -3,9 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-var book = require('./server-routes/user-reg');
 var app = express();
-const api = require('./server-routes/user-reg');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -13,7 +11,20 @@ app.use(bodyParser.urlencoded({'extended':'false'}));
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/register', express.static(path.join(__dirname, 'dist')));
-app.use('/api', api);
+
+app.get('/', function(req, res) {
+res.send('Express RESTful API');
+});
+
+app.get('/hello' , function(reg,res){
+ console.log("hello"); 
+res.send('Express RESTful API');
+})
+
+app.post('/api/register', function(req, res) {  
+  console.log("Register :"+req.body);  
+  res.send("Push this");
+});
 
 
 // catch 404 and forward to error handler
