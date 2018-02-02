@@ -12,18 +12,17 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/register', express.static(path.join(__dirname, 'dist')));
 
-app.get('/', function(req, res) {
-res.send('Express RESTful API');
-});
+
 
 app.get('/hello' , function(reg,res){
  console.log("hello"); 
-res.send('Express RESTful API');
+ res.send('Express RESTful API');
 })
 
 app.post('/api/register', function(req, res) {  
-  console.log("Register :"+req.body);  
-  res.send("Push this");
+  res.setHeader('Content-Type', 'application/json');
+  console.log("Register User success:");  
+  res.send(JSON.stringify({ a: 1 }));
 });
 
 

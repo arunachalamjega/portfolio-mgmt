@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
-import {ConfigService} from './http-service/http-service';
+import {HttpService} from './service/http-service';
+import {Http, Response} from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+
 
 const appRoutes: Routes = [
   {
@@ -19,11 +21,12 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, RegisterComponent, LoginComponent],
-  imports: [BrowserModule, AppBoostrapModule,  FormsModule,HttpClientModule,RouterModule.forRoot(
+  imports: [BrowserModule,FormsModule,HttpModule,
+    RouterModule.forRoot(
     appRoutes,
     { enableTracing: true } // <-- debugging purposes only
   )],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
