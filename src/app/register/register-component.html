@@ -4,77 +4,81 @@
         <form (ngSubmit)="onSubmit()"  #regForm="ngForm">
             <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" required [(ngModel)]="usermodel.firstName" name="firstName" #firstName="ngModel">
+                <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName" #firstName="ngModel">
                 <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
                     firstName is required
                 </div>
             </div>
             <div class="form-group">
-                    <label for="lastname">Last Name</label>
-                    <input type="text" class="form-control" id="lastname" required [(ngModel)]="usermodel.lastname" name="lastname" #lastname="ngModel">
-                    <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName" #lastName="ngModel">
+                    <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
                         Last Name is required
                     </div>
             </div>                            
             <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required [(ngModel)]="usermodel.email" name="email" #email="ngModel">                    
+                    <input type="email" class="form-control" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required [(ngModel)]="user.email" name="email" #email="ngModel">                    
             </div>
             <div class="form-group">
-                <label for="surName">SurName</label>
-                <select class="form-control" id="surName" required [(ngModel)]="usermodel.surName" name="surName" #surName="ngModel">
-                    <option *ngFor="let surname of surnames" [value]="surname">{{surname}}</option>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password"  required [(ngModel)]="user.password" name="password" #password="ngModel">                    
+            </div>
+            <div class="form-group">
+                <label for="surName">Salutation</label>
+                <select class="form-control" id="salutation" required [(ngModel)]="user.salutation" name="salutation" #salutation="ngModel">
+                    <option *ngFor="let salutation of salutations" [value]="salutation">{{salutation}}</option>
                 </select>
-                <div [hidden]="surName.valid || surName.pristine" class="alert alert-danger">
-                    surName is required
+                <div [hidden]="salutation.valid || salutation.pristine" class="alert alert-danger">
+                                salutation is required
                 </div>
             </div>
             <div class="form-group">
-                    <label for="addressline1">Address Line 1</label>
-                    <input type="text" class="form-control" id="addressline1" required [(ngModel)]="usermodel.addressline1" name="addressline1" #addressline1="ngModel">
-                    <div [hidden]="addressline1.valid || addressline1.pristine" class="alert alert-danger">
+                    <label for="addressLine1">Address Line 1</label>
+                    <input type="text" class="form-control" id="addressLine1" required [(ngModel)]="user.addressLine1" name="addressLine1" #addressLine1="ngModel">
+                    <div [hidden]="addressLine1.valid || addressLine1.pristine" class="alert alert-danger">
                             addressline1 is required
             </div>
             </div>            
             <div class="form-group">
-                    <label for="addressline2">Address Line 2</label>
-                    <input type="text" class="form-control" id="addressline2"  [(ngModel)]="usermodel.addressline2" name="addressline2" #addressline2="ngModel">
+                    <label for="addressLine2">Address Line 2</label>
+                    <input type="text" class="form-control" id="addressLine2"  [(ngModel)]="user.addressLine2" name="addressLine2" #addressLine2="ngModel">
             </div>
             <div class="form-group">
-                    <label for="addressline3">Address Line 3</label>
-                    <input type="text" class="form-control" id="addressline3"  [(ngModel)]="usermodel.addressline3" name="addressline3" #addressline3="ngModel">                                    
+                    <label for="addressLine3">Address Line 3</label>
+                    <input type="text" class="form-control" id="addressLine3"  [(ngModel)]="user.addressLine3" name="addressLine3" #addressLine3="ngModel">                                    
             </div>
             <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" required [(ngModel)]="usermodel.city" name="city" #city="ngModel">
+                    <input type="text" class="form-control" id="city" required [(ngModel)]="user.city" name="city" #city="ngModel">
                     <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
                             city is required
             </div>
             </div>
             <div class="form-group">
                     <label for="state">State</label>
-                    <input type="text" class="form-control" id="state" required [(ngModel)]="usermodel.state" name="state" #state="ngModel">
+                    <input type="text" class="form-control" id="state" required [(ngModel)]="user.state" name="state" #state="ngModel">
                     <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
                             state is required
             </div>
             </div>
             <div class="form-group">
                     <label for="pincode">Pin code</label>
-                    <input type="text" class="form-control" id="pincode" required [(ngModel)]="usermodel.pincode" name="pincode" #pincode="ngModel">
+                    <input type="text" class="form-control" id="pincode" required [(ngModel)]="user.pincode" name="pincode" #pincode="ngModel">
                     <div [hidden]="pincode.valid || pincode.pristine" class="alert alert-danger">
                             pincode is required
             </div>
             </div>
             <div class="form-group">
                     <label for="country">Country</label>
-                    <input type="text" class="form-control" id="country" required [(ngModel)]="usermodel.country" name="country" #country="ngModel">
+                    <input type="text" class="form-control" id="country" required [(ngModel)]="user.country" name="country" #country="ngModel">
                     <div [hidden]="country.valid || country.pristine" class="alert alert-danger">
                             country is required
             </div>
             </div>
             <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" required [(ngModel)]="usermodel.phone" name="phone" #phone="ngModel">
+                    <input type="text" class="form-control" id="phone" required [(ngModel)]="user.phone" name="phone" #phone="ngModel">
                     <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
                             phone is required
             </div>

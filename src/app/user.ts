@@ -1,19 +1,21 @@
 export class User {
 
     constructor(
-        public lastname: string,
+        public userName:string,
+        public lastName: string,
         public email: string,
-        public surName: string,
+        public salutation: string,
         public firstName: string,
-        public addressline1: string,
-        public addressline2: string,
-        public addressline3: string,
+        public addressLine1: string,
+        public addressLine2: string,
+        public addressLine3: string,
         public city :string,
         public pincode:number,
         public country:string,
         public state: string,
         public phone:string,
-        public tandcaccepted:boolean,
+        public agreeTermsCondition:string,
+        public password:string,
         public id?: number        
       ) {  }
     

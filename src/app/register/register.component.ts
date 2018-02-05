@@ -13,9 +13,9 @@ export class RegisterComponent implements OnInit {
   
   public name: string;
   public  email: string;
-  usermodel = new User('','','Mr.','','','','','',0,'','','',false);
+  user = new User('','','','Mr.','','','','','',0,'','','','Y','');
   submitted = false;
-  surnames = ['Mr.','Mrs.'];
+  salutations = ['Mr.','Mrs.'];
   
   constructor(private httpService :HttpService ) {    
   }
@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit {
     var err;
     var suc;
     console.log("Reset");
-    this.usermodel = new User('','','Mr.','','','','','',0,'','','',false);
-    this.httpService.asyncServiceCall(this.usermodel).then(
+    this.user = new User('','','','Mr.','','','','','',0,'','','','Y','');
+    this.httpService.asyncServiceCall(this.user).then(
         function(result){console.log("Response:"+result)},
         function(error){console.log("Error:"+error)});    
   }
@@ -40,7 +40,11 @@ export class RegisterComponent implements OnInit {
   }
 
   saveUser(){    
-    console.log(this.usermodel);    
+    var suc;
+    var err;
+    console.log(this.user);
+    this.user.userName='inboxofarun';
+    this.httpService.syncServiceCall(this.user,suc,err);    
   }
 
 }

@@ -1,0 +1,19 @@
+{
+ "middleware-service":{
+    "api": [
+    {
+     "name":"",
+     "url":  "",
+     "method": "GET"
+    },
+    {
+     "name":"",
+     "url":  "",
+     "method": "POST"
+    }
+    ]
+ }
+ }
+
+
+

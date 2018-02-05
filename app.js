@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var app = express();
+var request = require("request");
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -21,8 +22,14 @@ app.get('/hello' , function(reg,res){
 
 app.post('/api/register', function(req, res) {  
   res.setHeader('Content-Type', 'application/json');
-  console.log("Register User success:");  
-  res.send(JSON.stringify({ a: 1 }));
+  console.log("Register User success:"+JSON.stringify(req.body));  
+  url = "https://portfolio.app.dev.digifabricpcf.com/user/sign-up";
+  request.post(url,JSON.stringify(req.body), function callback(err,response,body){
+    if(err)
+    console.log("Errored out");
+    console.log(response.body);
+  }
+)
 });
 
 
